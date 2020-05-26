@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService
 
     @Override
     public List<User> findByNameContaining(String username,
-                                           java.awt.print.Pageable pageable)
+                                           Pageable pageable)
     {
         return userrepos.findByUsernameContainingIgnoreCase(username.toLowerCase(),
                 pageable);

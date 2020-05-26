@@ -46,7 +46,7 @@ public class SeedData implements CommandLineRunner
                                  r3));
         User u1 = new User(10L,
                 "https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png",
-                "admin3",
+                "admin4",
                 "password",
                 "mrayakubov@hotmail.com",
                 "Albert",
@@ -76,7 +76,7 @@ public class SeedData implements CommandLineRunner
                                 r2));
         User u2 = new User(11L,
                 "https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png",
-                "user2",
+                "user3",
                 "password",
                 "mrayakubov1@hotmail.com",
 
@@ -110,7 +110,7 @@ public class SeedData implements CommandLineRunner
                                 r2));
         User u3 = new User(12L,
                 "https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png",
-                "admin123",
+                "admin1234",
                 "password",
                 "mrayakubov2@hotmail.com",
 
@@ -130,10 +130,6 @@ public class SeedData implements CommandLineRunner
           .add(new Useremail(u3,
                              "barnbarn@email.local"));
         userService.save(u3);
-
-        users = new ArrayList<>();
-        users.add(new UserRoles(new User(),
-                                r2));
 
 
 

@@ -10,7 +10,8 @@ import java.util.List;
 @Loggable
 @Entity
 @Table(name = "roles")
-public class Role {
+public class Role extends Auditable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long roleid;
@@ -24,35 +25,49 @@ public class Role {
     @JsonIgnoreProperties("role")
     private List<UserRoles> userroles = new ArrayList<>();
 
-    public Role(String admin){}
-
-    public Role(long roleid, String name, List<UserRoles> userroles) {
-        this.roleid = roleid;
-        this.name = name.toUpperCase();
-        this.userroles = userroles;
+    public Role()
+    {
     }
 
-    public long getRoleid() {
+    public Role(String name)
+    {
+        this.name = name.toUpperCase();
+    }
+
+    public long getRoleid()
+    {
         return roleid;
     }
 
-    public void setRoleid(long roleid) {
+    public void setRoleid(long roleid)
+    {
         this.roleid = roleid;
     }
 
-    public String getName() {
-        return name;
+    public String getName()
+    {
+        if (name == null)
+        {
+            return null;
+        } else
+        {
+            return name.toUpperCase();
+        }
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name)
+    {
+        this.name = name.toUpperCase();
     }
 
-    public List<UserRoles> getUserroles() {
+    public List<UserRoles> getUserroles()
+    {
         return userroles;
     }
 
-    public void setUserroles(List<UserRoles> userroles) {
+    public void setUserroles(List<UserRoles> userroles)
+    {
         this.userroles = userroles;
     }
+
 }

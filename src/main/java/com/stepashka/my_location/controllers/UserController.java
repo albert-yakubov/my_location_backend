@@ -136,7 +136,7 @@ public class UserController
                     String userName,
             @PageableDefault(page = 0,
                     size = 5)
-                    java.awt.print.Pageable pageable)
+                    Pageable pageable)
     {
         List<User> u = userService.findByNameContaining(userName,
                 pageable);

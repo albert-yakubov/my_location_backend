@@ -2,10 +2,10 @@ package com.stepashka.my_location.repos;
 
 import com.stepashka.my_location.models.User;
 import com.stepashka.my_location.view.UserNameCountEmails;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 public interface UserRepository extends PagingAndSortingRepository<User, Long>{
