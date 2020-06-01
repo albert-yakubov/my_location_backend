@@ -38,6 +38,7 @@ public class PostedMapsServiceImpl implements PostedMapsService {
         PostedMaps newPostedMaps = new PostedMaps();
         newPostedMaps.setTitle(postedMaps.getTitle());
         newPostedMaps.setAddress(postedMaps.getAddress());
+        newPostedMaps.setMap(postedMaps.getMap());
         newPostedMaps.setCity(postedMaps.getCity());
         newPostedMaps.setState(postedMaps.getState());
         newPostedMaps.setZip(postedMaps.getZip());
@@ -59,6 +60,9 @@ public class PostedMapsServiceImpl implements PostedMapsService {
         }
         if (currentMap.getAddress()!=null) {
             currentMap.setAddress(postedMaps.getAddress());
+        }
+        if (currentMap.getMap() != null) {
+            currentMap.setMap(postedMaps.getMap());
         }
         if (currentMap.getCity()!=null) {
 
