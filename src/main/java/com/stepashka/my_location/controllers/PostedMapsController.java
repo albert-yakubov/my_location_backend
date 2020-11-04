@@ -2,6 +2,7 @@ package com.stepashka.my_location.controllers;
 
 import com.stepashka.my_location.models.ErrorDetail;
 import com.stepashka.my_location.models.PostedMaps;
+import com.stepashka.my_location.models.User;
 import com.stepashka.my_location.services.PostedMapsService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -18,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
@@ -83,7 +85,22 @@ public class PostedMapsController {
         postedMapsService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @GetMapping(value = "/postedmaps/{id}",
+            produces = {"application/json"})
+    public ResponseEntity<?> getPostedMapById(HttpServletRequest request,
+                                         @ApiParam(value = "id",
+                                                 required = true,
+                                                 example = "4")
+                                         @PathVariable
+                                                 Long id)
+    {
+        logger.trace(request.getMethod()
+                .toUpperCase() + " " + request.getRequestURI() + " accessed");
 
+        PostedMaps pm = postedMapsService.getPostedMapsById(id);
+        return new ResponseEntity<>(pm,
+                HttpStatus.OK);
+    }
     // http://localhost:2221/postedmaps/title/like/title
     @GetMapping(value = "/postedmaps/title/like/{title}",
             produces = {"application/json"})

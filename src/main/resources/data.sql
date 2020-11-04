@@ -124,4 +124,4 @@ INSERT INTO PostedMaps(id, title, address, map, city, state, zip, comments, lati
 INSERT INTO PostedMaps(id, title, address, map, city, state, zip, comments, latitude, longitude, created_at) VALUES (124,'Andante at Nine Mile Station',              '3310 S Kenton St',             'https://static.wixstatic.com/media/2aca76_e31ade4a56dc478c81ef7ee453fb2939~mv2_d_3120_4160_s_4_2.jpg',  'Denver', 'co',        '80231', 'none', 39.739235, -104.990250, '11111111'                       );
 
 
-alter sequence hibernate_sequence restart with 200;
+alter sequence hibernate_sequence restart with 2000;
