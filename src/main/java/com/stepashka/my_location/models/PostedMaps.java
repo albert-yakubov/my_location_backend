@@ -1,12 +1,10 @@
 package com.stepashka.my_location.models;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import com.stepashka.my_location.logging.Loggable;
 
 import javax.persistence.*;
-import java.util.Date;
 
 
 @Loggable
@@ -34,8 +32,7 @@ public class PostedMaps extends Auditable{
     @Column(nullable = true)
     private Float longitude;
     @Column(nullable = true)
-    @JsonFormat(pattern="MM-dd-yyyy")
-    private Date  created_at;
+    private String created_at;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USERID")
@@ -44,7 +41,7 @@ public class PostedMaps extends Auditable{
 
     public PostedMaps(){}
 
-    public PostedMaps(long id, String title, String address, String map, String city, String state, String zip, String comments, Float latitude, Float longitude, Date created_at, User user) {
+    public PostedMaps(long id, String title, String address, String map, String city, String state, String zip, String comments, Float latitude, Float longitude, String created_at, User user) {
         this.id = id;
         this.title = title;
         this.address = address;
@@ -139,11 +136,11 @@ public class PostedMaps extends Auditable{
         this.longitude = longitude;
     }
 
-    public Date getCreated_at() {
+    public String getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(Date created_at) {
+    public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
 
