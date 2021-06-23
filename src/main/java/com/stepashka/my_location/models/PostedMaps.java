@@ -1,14 +1,10 @@
 package com.stepashka.my_location.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import com.stepashka.my_location.logging.Loggable;
-import net.bytebuddy.asm.Advice;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 
 @Loggable
@@ -36,7 +32,7 @@ public class PostedMaps extends Auditable{
     @Column(nullable = true)
     private Float longitude;
     @Column(nullable = true)
-    private String  created_at;
+    private String created_at;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USERID")
